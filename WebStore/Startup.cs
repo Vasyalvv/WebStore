@@ -22,7 +22,7 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,7 +38,7 @@ namespace WebStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.MapGet("/Greetings", async context =>
                 {
                     await context.Response.WriteAsync($"Hello World!\n{Configuration["Greetings"]}");
                 });
