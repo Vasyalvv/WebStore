@@ -27,9 +27,5 @@ namespace WebStore.Controllers
             return View(employee);
         }
 
-        public IActionResult NotFound404()
-        {
-            return View();
-        }
     }
 }
