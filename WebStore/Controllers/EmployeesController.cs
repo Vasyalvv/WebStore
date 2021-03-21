@@ -32,19 +32,24 @@ namespace WebStore.Controllers
             return View(employee);
         }
 
-        public IActionResult Edit(int id)
+
+        public IActionResult Create() => View("Edit", new EmployeeViewModel());
+
+        public IActionResult Edit(int? id)
         {
-            var employee = _EmployeeData.Get(id);
+            if (id is null)
+                return View(new EmployeeViewModel());
+            var employee = _EmployeeData.Get((int)id);
             if (employee is null)
                 return NotFound();
 
-            return View(new EmployeeViewModel 
+            return View(new EmployeeViewModel
             {
-                Id=employee.Id,
-                Age=employee.Age,
-                LastName=employee.LastName,
-                Name=employee.FirstName,
-                Patronymic=employee.Patronymic
+                Id = employee.Id,
+                Age = employee.Age,
+                LastName = employee.LastName,
+                Name = employee.FirstName,
+                Patronymic = employee.Patronymic
             });
         }
 
@@ -60,7 +65,12 @@ namespace WebStore.Controllers
                 Age = model.Age
             };
 
-            _EmployeeData.Update(employee);
+            if (employee.Id == 0)
+                _EmployeeData.Add(employee);
+            else
+                _EmployeeData.Update(employee);
+
+
             return RedirectToAction("Index");
         }
 
