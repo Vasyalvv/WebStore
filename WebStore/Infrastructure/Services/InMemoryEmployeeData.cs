@@ -31,7 +31,7 @@ namespace WebStore.Infrastructure.Services
             return employee.Id;
         }
 
-        Employee Add(string LastName, string FirstName, string Patronymic,int Age)
+        public Employee Add(string LastName, string FirstName, string Patronymic,int Age)
         {
             var employee = new Employee
             {
@@ -63,7 +63,7 @@ namespace WebStore.Infrastructure.Services
             return _Employees.FirstOrDefault(e => e.Id == id);
         }
 
-        Employee GetByName(string LastName, string FirstName, string Patronymic) =>
+        public Employee GetByName(string LastName, string FirstName, string Patronymic) =>
             _Employees.FirstOrDefault(e => e.LastName == LastName && e.FirstName == FirstName && e.Patronymic == Patronymic);
 
         public void Update(Employee employee)

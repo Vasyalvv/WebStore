@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebStore.Data;
 using WebStore.Infrastructure.Services.Interfaces;
 using WebStore.Models;
+using WebStore.ViewModels;
 
 namespace WebStore.Controllers
 {
@@ -29,6 +30,38 @@ namespace WebStore.Controllers
                 return NotFound();
 
             return View(employee);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var employee = _EmployeeData.Get(id);
+            if (employee is null)
+                return NotFound();
+
+            return View(new EmployeeViewModel 
+            {
+                Id=employee.Id,
+                Age=employee.Age,
+                LastName=employee.LastName,
+                Name=employee.FirstName,
+                Patronymic=employee.Patronymic
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EmployeeViewModel model)
+        {
+            var employee = new Employee
+            {
+                Id = model.Id,
+                LastName = model.LastName,
+                FirstName = model.Name,
+                Patronymic = model.Patronymic,
+                Age = model.Age
+            };
+
+            _EmployeeData.Update(employee);
+            return RedirectToAction("Index");
         }
 
     }
