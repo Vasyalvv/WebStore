@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Infrastructure.Conventions;
+using WebStore.Infrastructure.Filters;
 using WebStore.Models;
 
 namespace WebStore.Controllers
@@ -12,6 +13,7 @@ namespace WebStore.Controllers
     public class HomeController : Controller
     {
        [ActionDescriptionAttribute("Основное действие")]
+       [AddHeader("Test","HeaderValue")]
         public IActionResult Index()
         {
             return View();

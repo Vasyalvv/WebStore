@@ -39,7 +39,10 @@ namespace WebStore
 
             app.UseStaticFiles();
 
-            app.UseRouting(); 
+            app.UseRouting();
+
+            //app.Map();
+            //app.Use();
 
             app.UseEndpoints(endpoints =>
             {
