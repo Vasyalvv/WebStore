@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Infrastructure.Conventions;
+using WebStore.Infrastructure.Services;
+using WebStore.Infrastructure.Services.Interfaces;
 
 namespace WebStore
 {
@@ -23,6 +25,7 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
             services
                 .AddControllersWithViews(
                 //mvc=>mvc.Conventions.Add(new ActionDescriptionAttribute("123"))
