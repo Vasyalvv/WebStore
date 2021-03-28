@@ -8,11 +8,11 @@ using WebStore.ViewModels;
 
 namespace WebStore.Components
 {
-    public class SectionViewComponent : ViewComponent
+    public class SectionsViewComponent : ViewComponent
     {
         private readonly IProductData _ProductData;
 
-        public SectionViewComponent(IProductData ProductData)
+        public SectionsViewComponent(IProductData ProductData)
         {
             _ProductData = ProductData;
         }
@@ -54,7 +54,7 @@ namespace WebStore.Components
             }
             parent_sections_views.Sort((a, b) => Comparer<int>.Default.Compare(a.Order, b.Order));
 
-            return View();
+            return View(parent_sections_views);
         }
     }
 }
