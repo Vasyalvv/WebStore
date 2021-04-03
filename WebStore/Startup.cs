@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 using WebStore.DAL.Context;
 using WebStore.Data;
 using WebStore.Infrastructure.Conventions;
-using WebStore.Infrastructure.Services;
+using WebStore.Infrastructure.Services.InMemory;
+using WebStore.Infrastructure.Services.InSQL;
 using WebStore.Infrastructure.Services.Interfaces;
 
 namespace WebStore
@@ -36,7 +37,9 @@ namespace WebStore
             services.AddTransient<WebStoreDbInitializer>();
 
             services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
-            services.AddTransient<IProductData, InMemoryProductData>();
+            //services.AddTransient<IProductData, InMemoryProductData>();
+            services.AddTransient<IProductData, SqlProductData>();
+
             services
                 .AddControllersWithViews(
                 //mvc=>mvc.Conventions.Add(new ActionDescriptionAttribute("123"))
