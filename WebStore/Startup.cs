@@ -26,6 +26,7 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
+            services.AddTransient<IProductData, InMemoryProductData>();
             services
                 .AddControllersWithViews(
                 //mvc=>mvc.Conventions.Add(new ActionDescriptionAttribute("123"))
