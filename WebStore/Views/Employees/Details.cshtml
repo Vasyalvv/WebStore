@@ -56,8 +56,9 @@
         </dl>
     </div>
     <div>
-        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        <a asp-action="Index">К списку сотрудников</a>
+        <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-default">Редактировать</a>
+        <a asp-action="Index" class="btn btn-info">К списку сотрудников</a>
+        <a asp-action="Delete" asp-route-Id="@Model.Id" class="btn btn-danger">Удалить!</a>
     </div>
 
 </div>

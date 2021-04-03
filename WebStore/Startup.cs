@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebStore.Infrastructure.Conventions;
+using WebStore.Infrastructure.Services;
+using WebStore.Infrastructure.Services.Interfaces;
 
 namespace WebStore
 {
@@ -22,7 +25,12 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
+            services
+                .AddControllersWithViews(
+                //mvc=>mvc.Conventions.Add(new ActionDescriptionAttribute("123"))
+                )
+                .AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,7 +42,10 @@ namespace WebStore
 
             app.UseStaticFiles();
 
-            app.UseRouting(); 
+            app.UseRouting();
+
+            //app.Map();
+            //app.Use();
 
             app.UseEndpoints(endpoints =>
             {
