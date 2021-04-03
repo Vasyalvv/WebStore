@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.DAL.Context;
+using WebStore.Data;
 using WebStore.Infrastructure.Conventions;
 using WebStore.Infrastructure.Services;
 using WebStore.Infrastructure.Services.Interfaces;
@@ -32,6 +33,8 @@ namespace WebStore
                 //.LogTo(Console.WriteLine)
                 );
 
+            services.AddTransient<WebStoreDbInitializer>();
+
             services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
             services.AddTransient<IProductData, InMemoryProductData>();
             services
@@ -41,8 +44,10 @@ namespace WebStore
                 .AddRazorRuntimeCompilation();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreDbInitializer db)
         {
+            db.Initialize();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
