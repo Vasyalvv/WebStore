@@ -28,7 +28,9 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WebStoreDB>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("Default")));
+                opt.UseSqlServer(Configuration.GetConnectionString("Default"))
+                //.LogTo(Console.WriteLine)
+                );
 
             services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
             services.AddTransient<IProductData, InMemoryProductData>();
