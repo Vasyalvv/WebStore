@@ -49,9 +49,43 @@ namespace WebStore.Controllers
         }
         #endregion
 
-        public IActionResult Login() => View();
 
-        public IActionResult Logout() => RedirectToAction("Index", "Home");
+        #region Login
+        public IActionResult Login(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
+
+        public async Task<IActionResult> Login(LoginViewModel Model)
+        {
+            if (!ModelState.IsValid) return View(Model);
+
+            var login_result = await _SignInManager.PasswordSignInAsync(
+                Model.UserName,
+                Model.Password,
+                Model.RememberMe,
+#if DEBUG
+                false
+#else
+                true
+#endif
+                );
+
+            if (login_result.Succeeded)
+            {
+                //if (Url.IsLocalUrl(Model.ReturnUrl))
+                //    return Redirect(Model.ReturnUrl);
+                //return RedirectToAction("Index", "Home");
+                return LocalRedirect(Model.ReturnUrl);
+            }
+
+            ModelState.AddModelError("", "Неверное имя пользователя или пароль");
+            return View(Model);
+        }
+        #endregion
+
+        public async Task<IActionResult> Logout()
+        {
+            await _SignInManager.SignOutAsync();
+           return  RedirectToAction("Index", "Home");
+        }
 
         public IActionResult AccessDenied() => View();
     }
