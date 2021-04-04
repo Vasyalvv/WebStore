@@ -15,6 +15,6 @@ namespace WebStore.Domain.Entities
         //[Column("BrandOrder",TypeName ="int")] //Демонстрация атрибутов 
         public int Order { get ; set ; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }
