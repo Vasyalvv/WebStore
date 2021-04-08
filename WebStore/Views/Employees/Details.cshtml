@@ -56,9 +56,15 @@
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-default">Редактировать</a>
+        @if (User.IsInRole(Role.Administrators))
+        {
+            <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-default">Редактировать</a> @:
+        }
         <a asp-action="Index" class="btn btn-info">К списку сотрудников</a>
-        <a asp-action="Delete" asp-route-Id="@Model.Id" class="btn btn-danger">Удалить!</a>
+        @if (User.IsInRole(Role.Administrators))
+        {
+            @: <a asp-action="Delete" asp-route-Id="@Model.Id" class="btn btn-danger">Удалить!</a>
+        }
     </div>
 
 </div>
