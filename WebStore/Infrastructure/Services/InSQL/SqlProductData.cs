@@ -21,6 +21,10 @@ namespace WebStore.Infrastructure.Services.InSQL
 
         public IEnumerable<Brand> GetBrands() => _db.Brands.Include(b => b.Products);
 
+        public Product GetProductById(int id) => _db.Products
+            .Include(p=>p.Section)
+            .Include(p=>p.Brand)
+            .FirstOrDefault(p => p.Id == id);
 
         public IEnumerable<Product> GetProducts(ProductFilter Filter = null)
         {
