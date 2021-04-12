@@ -1,13 +1,42 @@
 ﻿<!DOCTYPE html>
+<html lang="ru">
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin</title>
+
+    <partial name="Partial/_Styles" />
+
+    @await RenderSectionAsync("Styles", false)
+
+    <link rel="shortcut icon" href="~/Admin/images/favicon.png" />
 </head>
+
 <body>
-    <div>
-        @RenderBody()
+    <div class=" container-scroller">
+
+        <partial name="Partial/_Header" />
+
+        <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <partial name="Partial/_Sidebar" />
+
+                @RenderBody()
+
+                <partial name="Partial/_Footer" />
+
+            </div>
+        </div>
+
     </div>
+
+    <partial name="Partial/_Scripts" />
+
+    @await RenderSectionAsync("Scripts", false)
+
 </body>
+
 </html>
