@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Товары";
+}
+
+<!-- partial -->
+<div class="content-wrapper">
+    <h3 class="page-heading mb-4">Товары</h3>
+    <div class="card-deck">
+        <div class="card col-lg-12 px-0 mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Управление товарами</h5>
+                <div class="table-responsive">
+                    <table class="table center-aligned-table">
+                        <thead>
+                            <tr class="text-primary">
+                                <th></th>
+                                <th>@Html.DisplayNameFor(product => product.Id)</th>
+                                <th>@Html.DisplayNameFor(product => product.Name)</th>
+                                <th>@Html.DisplayNameFor(product => product.Brand)</th>
+                                <th>@Html.DisplayNameFor(product => product.Section)</th>
+                                <th>@Html.DisplayNameFor(product => product.ImageUrl)</th>
+                                <th>@Html.DisplayNameFor(product => product.Price)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                            <tr class="">
+                                <th>
+                                    <a asp-action="Edit" asp-route-id="@product.Id"><span class="btn btn-outline-success btn-sm">Редактировать</span></a>
+                                </th>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Brand.Name</td>
+                                <td>@product.Section.Name</td>
+                                <td><img src="~/images/shop/@product.ImageUrl" width="50" alt="@product.Name" /></td>
+                                <td>@product.Price</td>
+                                <th>
+                                    <a  asp-action="Delete" asp-route-id="@product.Id" class="text-danger"><span class="btn btn-outline-danger btn-sm" aria-hidden="true">Удалить</span></a>
+                                </th>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
