@@ -27,20 +27,20 @@
                         <tbody>
                             @foreach (var product in Model)
                             {
-                            <tr class="">
-                                <th>
-                                    <a asp-action="Edit" asp-route-id="@product.Id"><span class="btn btn-outline-success btn-sm">Редактировать</span></a>
-                                </th>
-                                <td>@product.Id</td>
-                                <td>@product.Name</td>
-                                <td>@product.Brand.Name</td>
-                                <td>@product.Section.Name</td>
-                                <td><img src="~/images/shop/@product.ImageUrl" width="50" alt="@product.Name" /></td>
-                                <td>@product.Price</td>
-                                <th>
-                                    <a  asp-action="Delete" asp-route-id="@product.Id" class="text-danger"><span class="btn btn-outline-danger btn-sm" aria-hidden="true">Удалить</span></a>
-                                </th>
-                            </tr>
+                                <tr class="">
+                                    <th>
+                                        <a asp-action="Edit" asp-route-id="@product.Id"><span class="btn btn-outline-success btn-sm">Редактировать</span></a>
+                                    </th>
+                                    <td>@product.Id</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.Brand.Name</td>
+                                    <td>@product.Section.Name</td>
+                                    <td><img src="~/images/shop/@product.ImageUrl" width="50" alt="@product.Name" /></td>
+                                    <td>@product.Price</td>
+                                    <th>
+                                        <a asp-action="Delete" asp-route-id="@product.Id" class="text-danger"><span class="btn btn-outline-danger btn-sm" aria-hidden="true">Удалить</span></a>
+                                    </th>
+                                </tr>
                             }
                         </tbody>
                     </table>
