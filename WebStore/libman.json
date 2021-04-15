@@ -32,7 +32,6 @@
       "destination": "wwwroot/Admin/node_modules/jquery/"
     },
     {
-      //"library": "jquery@1.10.2",
       "library": "popper.js@1.12.5",
       "destination": "wwwroot/Admin/node_modules/popper/"
     },
