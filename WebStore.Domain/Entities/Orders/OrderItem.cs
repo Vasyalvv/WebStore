@@ -18,6 +18,6 @@ namespace WebStore.Domain.Entities.Orders
         public int Quantity { get; set; }
 
         [NotMapped]
-        public decimal TotalItmPrice => Price * Quantity;
+        public decimal TotalItemPrice => Price * Quantity;
     }
 }
