@@ -6,7 +6,7 @@ using WebStore.Data;
 using WebStore.Infrastructure.Services.Interfaces;
 using WebStore.Models;
 
-namespace WebStore.Infrastructure.Services
+namespace WebStore.Infrastructure.Services.InMemory
 {
     public class InMemoryEmployeeData : IEmployeesData
     {
@@ -31,7 +31,7 @@ namespace WebStore.Infrastructure.Services
             return employee.Id;
         }
 
-        public Employee Add(string LastName, string FirstName, string Patronymic,int Age)
+        public Employee Add(string LastName, string FirstName, string Patronymic, int Age)
         {
             var employee = new Employee
             {
@@ -41,7 +41,7 @@ namespace WebStore.Infrastructure.Services
                 Age = Age
             };
             Add(employee);
-            return employee; 
+            return employee;
 
         }
 
