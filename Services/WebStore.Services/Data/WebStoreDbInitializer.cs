@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 
-namespace WebStore.Data
+namespace WebStore.Services.Data
 {
     public class WebStoreDbInitializer
     {
@@ -158,14 +158,14 @@ namespace WebStore.Data
             await CheckRole(Role.Administrators);
             await CheckRole(Role.Users);
 
-            if(await _UserManager.FindByNameAsync(User.Administrator) is null)
+            if (await _UserManager.FindByNameAsync(User.Administrator) is null)
             {
                 _Logger.LogInformation("Отсутствует учетная запись {0}. Процесс создания...", User.Administrator);
 
                 var admin = new User { UserName = User.Administrator };
                 var creation_result = await _UserManager.CreateAsync(admin, User.DefaultAdminPassword);
 
-                if(creation_result.Succeeded)
+                if (creation_result.Succeeded)
                 {
                     _Logger.LogInformation("Учетная запись {0} создана успешно", User.Administrator);
 
@@ -174,7 +174,7 @@ namespace WebStore.Data
                     _Logger.LogInformation("Учетная запись {0} наделена ролью администратора", User.Administrator);
                 }
                 else
-                {                   
+                {
                     var errors = creation_result.Errors.Select(e => e.Code);
 
                     _Logger.LogInformation($"Ошибка при создании учетной записи администратора: {string.Join(",", errors)}");

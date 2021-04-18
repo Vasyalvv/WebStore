@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Infrastructure.Conventions;
 using WebStore.Infrastructure.Filters;
-using WebStore.Models;
 
 namespace WebStore.Controllers
 {

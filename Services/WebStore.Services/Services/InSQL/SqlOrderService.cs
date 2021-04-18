@@ -10,7 +10,7 @@ using WebStore.Domain.Entities.Orders;
 using WebStore.Domain.ViewModels;
 using WebStore.Interfaces.Services;
 
-namespace WebStore.Infrastructure.Services.InSQL
+namespace WebStore.Services.Services.InSQL
 {
     public class SqlOrderService : IOrderService
     {
@@ -24,18 +24,18 @@ namespace WebStore.Infrastructure.Services.InSQL
         }
         public async Task<Order> CreateOrder(string UserName, CartViewModel Cart, OrderViewModel OrderModel)
         {
-            var user =await _UserManager.FindByNameAsync(UserName);
+            var user = await _UserManager.FindByNameAsync(UserName);
             if (user is null)
                 throw new InvalidOperationException($"Пользователь с именем {UserName} в БД отсутствует");
 
             await using var transaction = await _Db.Database.BeginTransactionAsync();
 
             var order = new Order
-            { 
-            Name=OrderModel.Name,
-            Phone=OrderModel.Phone,
-            Address= OrderModel.Address,
-            User=user
+            {
+                Name = OrderModel.Name,
+                Phone = OrderModel.Phone,
+                Address = OrderModel.Address,
+                User = user
             };
 
             var product_ids = Cart.Items.Select(item => item.Product.Id).ToArray();
@@ -46,14 +46,14 @@ namespace WebStore.Infrastructure.Services.InSQL
 
             order.Items = Cart.Items.Join(
                 cart_products,
-                cart_item=>cart_item.Product.Id,
-                product=>product.Id,
-                (cart_item,product)=> new OrderItem
+                cart_item => cart_item.Product.Id,
+                product => product.Id,
+                (cart_item, product) => new OrderItem
                 {
-                    Order=order,
-                    Product=product,
-                    Price=product.Price,
-                    Quantity=cart_item.Quantity
+                    Order = order,
+                    Product = product,
+                    Price = product.Price,
+                    Quantity = cart_item.Quantity
                 }
                 ).ToArray();
 
