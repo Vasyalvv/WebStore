@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebStore.ViewModels
+namespace WebStore.Domain.ViewModels
 {
     public class RegisterUserViewModel
     {
         [Required, MaxLength(256)]
-        [Display(Name ="Имя пользователя")]
+        [Display(Name = "Имя пользователя")]
         public string UserName { get; init; }
 
         [Required]

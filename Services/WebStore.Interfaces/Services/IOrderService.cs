@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.Entities.Orders;
-using WebStore.ViewModels;
+using WebStore.Domain.ViewModels;
 
-namespace WebStore.Infrastructure.Services.Interfaces
+namespace WebStore.Interfaces.Services
 {
-   public interface IOrderService
+    public interface IOrderService
     {
         Task<IEnumerable<Order>> GetUserOrders(string UserName);
 

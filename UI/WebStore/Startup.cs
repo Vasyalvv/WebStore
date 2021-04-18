@@ -17,7 +17,7 @@ using WebStore.Infrastructure.Conventions;
 using WebStore.Infrastructure.Services.InCookies;
 using WebStore.Infrastructure.Services.InMemory;
 using WebStore.Infrastructure.Services.InSQL;
-using WebStore.Infrastructure.Services.Interfaces;
+using WebStore.Interfaces.Services;
 
 namespace WebStore
 {

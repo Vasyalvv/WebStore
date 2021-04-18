@@ -5,17 +5,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebStore.ViewModels
+namespace WebStore.Domain.ViewModels
 {
     public class EmployeeViewModel //:IValidatableObject
     {
-        [HiddenInput(DisplayValue =false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
-        [Display(Name ="Фамилия")]
-        [Required(ErrorMessage ="Фамилия является обязательной")]
-        [StringLength(200,MinimumLength =2,ErrorMessage ="Длина должна быть от 2 до 200 символов")]
-        [RegularExpression(@"([А-ЯЁ][а-яё]+)|[A-Z][a-z]+",ErrorMessage ="Неправильный формат: все символы должны быть либо латиницей, либо кириллицей. Первая буква - заглавная")]
+        [Display(Name = "Фамилия")]
+        [Required(ErrorMessage = "Фамилия является обязательной")]
+        [StringLength(200, MinimumLength = 2, ErrorMessage = "Длина должна быть от 2 до 200 символов")]
+        [RegularExpression(@"([А-ЯЁ][а-яё]+)|[A-Z][a-z]+", ErrorMessage = "Неправильный формат: все символы должны быть либо латиницей, либо кириллицей. Первая буква - заглавная")]
         public string LastName { get; set; }
 
         [Display(Name = "Имя")]
@@ -31,7 +31,7 @@ namespace WebStore.ViewModels
         public string Patronymic { get; set; }
 
         [Display(Name = "Возраст")]
-        [Range(18,80,ErrorMessage ="Возраст должен быть от 18 до 80 лет")]
+        [Range(18, 80, ErrorMessage = "Возраст должен быть от 18 до 80 лет")]
         public int Age { get; set; }
 
         //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebStore.ViewModels
+namespace WebStore.Domain.ViewModels
 {
     public class CartViewModel
     {
@@ -12,5 +12,5 @@ namespace WebStore.ViewModels
         public int ItemsCount => Items?.Sum(item => item.Quantity) ?? 0;
 
         public decimal TotalPrice => Items?.Sum(item => item.Product.Price * item.Quantity) ?? 0m;
-        }
+    }
 }
