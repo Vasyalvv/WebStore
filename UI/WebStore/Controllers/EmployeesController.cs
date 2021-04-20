@@ -15,19 +15,19 @@ namespace WebStore.Controllers
     [Authorize]
     public class EmployeesController : Controller
     {
-        private readonly IEmployeesData _EmployeeData;
+        private readonly IEmployeesData _EmployeesData;
         public EmployeesController(IEmployeesData EmployeesData)
         {
-            _EmployeeData = EmployeesData;
+            _EmployeesData = EmployeesData;
         }
 
         //[Route("All")]
-        public IActionResult Index() => View(_EmployeeData.Get());
+        public IActionResult Index() => View(_EmployeesData.Get());
 
         //[Route("info-(id-{id})")]
         public IActionResult Details(int id)
         {
-            var employee = _EmployeeData.Get(id);
+            var employee = _EmployeesData.Get(id);
             if (employee is null)
                 return NotFound();
 
@@ -42,7 +42,7 @@ namespace WebStore.Controllers
         {
             if (id is null)
                 return View(new EmployeeViewModel());
-            var employee = _EmployeeData.Get((int)id);
+            var employee = _EmployeesData.Get((int)id);
             if (employee is null)
                 return NotFound();
 
@@ -76,9 +76,9 @@ namespace WebStore.Controllers
             };
 
             if (employee.Id == 0)
-                _EmployeeData.Add(employee);
+                _EmployeesData.Add(employee);
             else
-                _EmployeeData.Update(employee);
+                _EmployeesData.Update(employee);
 
             return RedirectToAction("Index");
         }
@@ -88,7 +88,7 @@ namespace WebStore.Controllers
         {
             if (id < 0) return BadRequest();
 
-            var employee = _EmployeeData.Get(id);
+            var employee = _EmployeesData.Get(id);
             if (employee is null) return NotFound();
 
             return View(new EmployeeViewModel
@@ -105,7 +105,7 @@ namespace WebStore.Controllers
         [HttpPost]  
         public IActionResult DeleteConfirmed(int id)
         {
-            _EmployeeData.Delete(id);
+            _EmployeesData.Delete(id);
             return RedirectToAction("Index");
         }
 
