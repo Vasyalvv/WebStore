@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebStore.Clients.Employees;
 using WebStore.Clients.Values;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
@@ -76,7 +77,8 @@ namespace WebStore
 
             services.AddTransient<WebStoreDbInitializer>();
 
-            services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
+            //services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
+            services.AddTransient<IEmployeesData, EmployeesClient>();
             //services.AddTransient<IProductData, InMemoryProductData>();
             services.AddScoped<IProductData, SqlProductData>();
             services.AddScoped<ICartServices, InCookiesCartService>();
