@@ -37,7 +37,7 @@ namespace WebStore.ServiceHosting.Controllers
         [HttpGet("{id}")]   //http://localhost:5001/api/employees/77
         public Employee Get(int id) => _EmployeesData.Get(id);
 
-        [HttpGet("{employee}")] //http://localhost:5001/api/employees/employee?LastName=Сергеев&FirstName=Александр&Patronymic=Петрович
+        [HttpGet("employee")] //http://localhost:5001/api/employees/employee?LastName=Сергеев&FirstName=Александр&Patronymic=Петрович
         public Employee GetByName(string LastName, string FirstName, string Patronymic) 
             => _EmployeesData.GetByName(LastName, FirstName, Patronymic);
 
