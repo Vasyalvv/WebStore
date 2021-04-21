@@ -3,7 +3,7 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@1.10.2",
+      "library": "jquery@3.2.1",
       "destination": "wwwroot/lib/jquery/"
     },
     {
@@ -13,6 +13,35 @@
     {
       "library": "font-awesome@4.0.3",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "flag-icon-css@2.8.0",
+      "destination": "wwwroot/Admin/node_modules/flag-icon-css/"
+    },
+    {
+      "library": "font-awesome@4.0.3",
+      "destination": "wwwroot/Admin/node_modules/font-awesome/"
+    },
+    {
+      "library": "jquery.perfect-scrollbar@0.7.1",
+      "destination": "wwwroot/Admin/node_modules/perfect-scrollbar/"
+    },
+    {
+      //"library": "jquery@1.10.2",
+      "library": "jquery@3.2.1",
+      "destination": "wwwroot/Admin/node_modules/jquery/"
+    },
+    {
+      "library": "popper.js@1.12.5",
+      "destination": "wwwroot/Admin/node_modules/popper/"
+    },
+    {
+      "library": "twitter-bootstrap@3.0.3",
+      "destination": "wwwroot/Admin/node_modules/bootstrap/"
+    },
+    {
+      "library": "Chart.js@2.6.0",
+      "destination": "wwwroot/Admin/node_modules/chart/"
     }
   ]
 }

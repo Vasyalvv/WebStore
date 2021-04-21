@@ -78,6 +78,7 @@ namespace WebStore
             //services.AddTransient<IProductData, InMemoryProductData>();
             services.AddTransient<IProductData, SqlProductData>();
             services.AddTransient<ICartServices, InCookiesCartService>();
+            services.AddTransient<IOrderService, SqlOrderService>();
 
             services
                 .AddControllersWithViews(
@@ -107,12 +108,15 @@ namespace WebStore
 
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapGet("/Greetings", async context =>
                 {
                     await context.Response.WriteAsync($"Hello World!\n{Configuration["Greetings"]}");
                 });
 
-                endpoints.MapControllerRoute("default","{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("areas", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

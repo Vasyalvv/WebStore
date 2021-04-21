@@ -11,6 +11,7 @@ namespace WebStore.Domain.Entities.Base
 {
     public abstract class Entity : IEntity
     {
+        [Display(Name ="ID")]
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Здесь это не обязательно, просто пример демонстрации атрибутов
         public int Id { get ; set ; }
     }
