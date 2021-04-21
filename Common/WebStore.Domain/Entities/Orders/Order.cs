@@ -18,6 +18,6 @@ namespace WebStore.Domain.Entities.Orders
 
         public DateTime Date { get; set; } = DateTime.Now;
 
-        public IEnumerable<OrderItem> Items { get; set; } = new HashSet<OrderItem>();
+        public ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>();
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.ViewModels;
 using WebStore.Interfaces.Services;
+using WebStore.Services.Mapping;
 
 namespace WebStore.Controllers
 {
@@ -24,7 +25,7 @@ namespace WebStore.Controllers
                 Name=o.Name,
                 Phone= o .Phone,
                 Address=o.Address,
-                TotalPrice=o.Items.Sum(item=>item.TotalItemPrice)
+                TotalPrice=o.Items.Sum(item=>item.FromDTO().TotalItemPrice)
             }));
         }
     }
