@@ -21,6 +21,10 @@ namespace WebStore.Services.Services.InSQL
             _db = db;
         }
 
+        public BrandDTO GetBrandById(int id) => _db.Brands
+            .Include(s => s.Products)
+            .FirstOrDefault(s=>s.Id==id)
+            .ToDTO();
         public IEnumerable<BrandDTO> GetBrands() => _db.Brands.Include(b => b.Products).ToDTO();
 
         public ProductDTO GetProductById(int id) => _db.Products
@@ -50,6 +54,10 @@ namespace WebStore.Services.Services.InSQL
             return query.AsEnumerable().ToDTO();
         }
 
+        public SectionDTO GetSectionById(int id) => _db.Sections
+            .Include(s => s.Products)
+            .FirstOrDefault(s => s.Id == id)
+            .ToDTO();
         public IEnumerable<SectionDTO> GetSections() => _db.Sections.Include(s => s.Products).ToDTO();
     }
 }

@@ -10,7 +10,11 @@ namespace WebStore.Interfaces.Services
 {
     public interface IProductData
     {
+        SectionDTO GetSectionById(int id);
+
         IEnumerable<SectionDTO> GetSections();
+
+        BrandDTO GetBrandById(int id);
 
         IEnumerable<BrandDTO> GetBrands();
 

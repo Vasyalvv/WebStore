@@ -19,6 +19,7 @@ namespace WebStore.Clients.Products
         {
         }
 
+        public BrandDTO GetBrandById(int id) => Get<BrandDTO>($"{Address}/brands/{id}");
         public IEnumerable<BrandDTO> GetBrands() => base.Get<IEnumerable<BrandDTO>>($"{Address}/brands");
         public ProductDTO GetProductById(int id) => Get<ProductDTO>($"{Address}/{id}");
         public IEnumerable<ProductDTO> GetProducts(ProductFilter Filter = null) => 
@@ -26,6 +27,7 @@ namespace WebStore.Clients.Products
             .Content
             .ReadAsAsync<IEnumerable<ProductDTO>>()
             .Result;
+        public SectionDTO GetSectionById(int id) => Get<SectionDTO>($"{Address}/sections/{id}");
         public IEnumerable<SectionDTO> GetSections() => base.Get<IEnumerable<SectionDTO>>($"{Address}/sections");
     }
 }
