@@ -70,7 +70,7 @@ namespace WebStore.ServiceHosting.Controllers.Identity
             return update_result.Succeeded;
         }
 
-        [HttpPost("User")]
+        [HttpPost("User/Delete")]
         public async Task<bool> DeleteAsync([FromBody] User user)
         {
             var delete_result = await _UserStore.DeleteAsync(user);
