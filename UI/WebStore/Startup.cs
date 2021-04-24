@@ -38,10 +38,10 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<WebStoreDB>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("Default"))
-                //.LogTo(Console.WriteLine)
-                );
+            //services.AddDbContext<WebStoreDB>(opt =>
+            //    opt.UseSqlServer(Configuration.GetConnectionString("Default"))
+            //    //.LogTo(Console.WriteLine)
+            //    );
 
             services.AddIdentity<User, Role>()
                 //.AddEntityFrameworkStores<WebStoreDB>()
@@ -93,8 +93,6 @@ namespace WebStore
                 opt.SlidingExpiration = true;
             });
 
-            services.AddTransient<WebStoreDbInitializer>();
-
             //services.AddTransient<IEmployeesData, InMemoryEmployeeData>();
             services.AddTransient<IEmployeesData, EmployeesClient>();
             //services.AddTransient<IProductData, InMemoryProductData>();
@@ -112,10 +110,8 @@ namespace WebStore
                 .AddRazorRuntimeCompilation();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreDbInitializer db)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            db.Initialize();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
