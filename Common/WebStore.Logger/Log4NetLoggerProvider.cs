@@ -17,16 +17,16 @@ namespace WebStore.Logger
              {      
                  var xml = new XmlDocument();
 
-                 string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
-                 StringBuilder stringBuilder = new StringBuilder();
-                 using (StreamReader sr = new StreamReader(_ConfigurationFile))
-                 {
-                     stringBuilder.Append( sr.ReadToEnd());
-                 }
-                 if (stringBuilder.ToString().StartsWith(_byteOrderMarkUtf8)) { stringBuilder.Remove(0, _byteOrderMarkUtf8.Length); }
+                 //string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+                 //StringBuilder stringBuilder = new StringBuilder();
+                 //using (StreamReader sr = new StreamReader(_ConfigurationFile))
+                 //{
+                 //    stringBuilder.Append( sr.ReadToEnd());
+                 //}
+                 //if (stringBuilder.ToString().StartsWith(_byteOrderMarkUtf8)) { stringBuilder.Remove(0, _byteOrderMarkUtf8.Length); }
 
-                 xml.LoadXml(stringBuilder.ToString());
-                 //xml.Load(_ConfigurationFile);
+                 //xml.LoadXml(stringBuilder.ToString());
+                 xml.Load(_ConfigurationFile);
                  return new Log4NetLogger(category, xml["log4net"]);
              });
 
