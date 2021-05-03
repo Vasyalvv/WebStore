@@ -68,5 +68,15 @@ namespace WebStore.Controllers
         {
             return View();
         }
+
+        public IActionResult Throw() => throw new ApplicationException("Test error))");
+
+        public IActionResult Error404() => View();
+
+        public IActionResult ErrorStatus(string code) => code switch
+        {
+            "404" => RedirectToAction(nameof(Error404)),
+            _ => Content($"Errore code:{code}")
+        };
     }
 }
