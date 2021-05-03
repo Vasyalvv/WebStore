@@ -24,6 +24,7 @@ using WebStore.Interfaces.Services;
 using WebStore.Interfaces.TestApi;
 using WebStore.Logger;
 using WebStore.Services.Data;
+using WebStore.Services.Services;
 using WebStore.Services.Services.InCookies;
 using WebStore.Services.Services.InMemory;
 using WebStore.Services.Services.InSQL;
@@ -88,7 +89,9 @@ namespace WebStore
             //services.AddTransient<IProductData, InMemoryProductData>();
             //services.AddScoped<IProductData, SqlProductData>();
             services.AddScoped<IProductData, ProductsClient>();
-            services.AddScoped<ICartServices, InCookiesCartService>();
+            //services.AddScoped<ICartServices, InCookiesCartService>();
+            services.AddScoped<ICartServices, CartService>();
+            services.AddScoped<ICartStore, InCookiesCartStore>();
             //services.AddScoped<IOrderService, SqlOrderService>();
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddScoped<IValuesService, ValuesClient>();
