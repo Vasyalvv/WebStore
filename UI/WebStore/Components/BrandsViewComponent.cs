@@ -17,7 +17,7 @@ namespace WebStore.Components
             _ProductData = ProductData;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string BrandId)
         {
             return View(GetBrands());
         }
