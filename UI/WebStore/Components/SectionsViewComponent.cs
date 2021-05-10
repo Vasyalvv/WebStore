@@ -23,6 +23,10 @@ namespace WebStore.Components
             var section_id = int.TryParse(SectionId, out var id) ? id : (int?)null;
             var sections = GetSections(section_id, out var parent_section_id);
 
+            //ViewBag.SectionId = section_id;
+            //ViewBag и ViewData - альтернативный способ передачи данных в представление
+            //ViewData["ParentSectionId"] = parent_section_id;
+
             return View(new SelectableSectionsViewModel
             {
                 Sections=sections,
