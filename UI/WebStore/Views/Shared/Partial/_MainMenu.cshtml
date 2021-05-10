@@ -1,25 +1,25 @@
 ﻿<ul class="nav navbar-nav collapse navbar-collapse">
-    <li><a hasp-controller="Home" asp-action="Index">Home</a></li>
+    <li><a is-active-route asp-controller="Home" asp-action="Index">Home</a></li>
     <li class="dropdown">
-        <a asp-controller="Home" asp-action="Shop">Shop<i class="fa fa-angle-down"></i></a>
+        <a is-active-route ignore-action asp-controller="Home" asp-action="Shop">Shop<i class="fa fa-angle-down"></i></a>
         <ul role="menu" class="sub-menu">
-            <li><a asp-controller="Catalog" asp-action="Index">Products</a></li>
-            <li><a asp-controller="Home" asp-action="ProductDetails">Product Details</a></li>
-            <li><a asp-controller="Home" asp-action="Checkout">Checkout</a></li>
-            <li><a asp-controller="Home" asp-action="Cart">Cart</a></li>
-            <li><a asp-controller="Home" asp-action="Login">Login</a></li>
+            <li><ais-active-route  asp-controller="Catalog" asp-action="Index">Products</ais-active-route></li>
+            <li><a is-active-route asp-controller="Home" asp-action="ProductDetails">Product Details</a></li>
+            <li><a is-active-route asp-controller="Home" asp-action="Checkout">Checkout</a></li>
+            <li><a is-active-route asp-controller="Home" asp-action="Cart">Cart</a></li>
+            <li><a is-active-route asp-controller="Home" asp-action="Login">Login</a></li>
         </ul>
     </li>
     <li class="dropdown">
-        <a asp-controller="Home" asp-action="Blog">Blog<i class="fa fa-angle-down"></i></a>
+        <a is-active-route ignore-action asp-controller="Home" asp-action="Blog">Blog<i class="fa fa-angle-down"></i></a>
         <ul role="menu" class="sub-menu">
-            <li><a asp-controller="Home" asp-action="Blog">Blog List</a></li>
-            <li><a asp-controller="Home" asp-action="BlogSingle">Blog Single</a></li>
+            <li><a is-active-route asp-controller="Home" asp-action="Blog">Blog List</a></li>
+            <li><a is-active-route asp-controller="Home" asp-action="BlogSingle">Blog Single</a></li>
         </ul>
     </li>
-    <li><a asp-controller="Home" asp-action="NotFound404">404</a></li>
-    <li><a asp-controller="Home" asp-action="ContactUs">Contact</a></li>
-    <li><a asp-controller="Employees" asp-action="Index">Сотрудники</a></li>
+    <li><a is-active-route asp-controller="Home" asp-action="NotFound404">404</a></li>
+    <li><a is-active-route asp-controller="Home" asp-action="ContactUs">Contact</a></li>
+    <li><a is-active-route asp-controller="Employees" asp-action="Index">Сотрудники</a></li>
     <li><a is-active-route asp-controller="WebApi" asp-action="Index" class="@IsActive("WebApi")">WebAPI</a></li>
 </ul>
 
