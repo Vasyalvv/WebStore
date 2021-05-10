@@ -20,5 +20,6 @@ namespace WebStore.Domain.Models
         public string Department { get; set; }
 
         public int Salary { get; set; }
+        public override string ToString() => $"{LastName} {FirstName} {Patronymic} {Age} лет";
     }
 }

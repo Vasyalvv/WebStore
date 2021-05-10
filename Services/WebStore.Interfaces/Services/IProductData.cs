@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain;
+using WebStore.Domain.DTO;
 using WebStore.Domain.Entities;
 
 namespace WebStore.Interfaces.Services
 {
     public interface IProductData
     {
-        IEnumerable<Section> GetSections();
+        SectionDTO GetSectionById(int id);
 
-        IEnumerable<Brand> GetBrands();
+        IEnumerable<SectionDTO> GetSections();
 
-        IEnumerable<Product> GetProducts(ProductFilter Filter = null);
+        BrandDTO GetBrandById(int id);
 
-        Product GetProductById(int id);
+        IEnumerable<BrandDTO> GetBrands();
+
+        IEnumerable<ProductDTO> GetProducts(ProductFilter Filter = null);
+
+        ProductDTO GetProductById(int id);
     }
 }
