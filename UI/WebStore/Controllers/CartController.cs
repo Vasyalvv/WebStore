@@ -90,13 +90,13 @@ namespace WebStore.Controllers
 
         public IActionResult AddApi(int id)
         {
-            _CartServices.Add(id);
+            _CartServisces.Add(id);
             return Json(new { id, message = $"Товар с id:{id} был добавлен в корзину" });
         }
 
         public IActionResult RemoveApi(int id)
         {
-            _CartServices.Remove(id);
+            _CartServisces.Remove(id);
             return Ok(new { id, message = $"Товар с id:{id} был удалён из корзины" });
         }
 

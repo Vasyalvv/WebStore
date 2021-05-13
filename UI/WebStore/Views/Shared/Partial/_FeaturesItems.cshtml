@@ -23,10 +23,8 @@
                         </p>
                         <a asp-controller="Cart" asp-action="Add" asp-route-id="@product.Id"
                            data-id="@product.Id"                           
-                           class="btn btn-default add-to-cart cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            В корзину
-                        </a>
+                           class="btn btn-default add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>В корзину</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
@@ -41,7 +39,8 @@
                                 </a>
                             </p>
                             <a asp-controller="Cart" asp-action="Add" asp-route-id="@product.Id"
-                               class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                               data-id="@product.Id"
+                               class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                         </div>
                     </div>
                 </div>
