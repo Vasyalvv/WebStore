@@ -27,19 +27,20 @@ namespace WebStore.Controllers
             var page_size = PageSize
                 ?? (int.TryParse(_Configuration["CatalogPageSize"], out var value) ? value : null);
 
-            var filter = new ProductFilter { 
+            var filter = new ProductFilter
+            {
                 BrandId = BrandId,
-                SectionId = SectionId ,
-                Page=Page,
-                PageSize=page_size
+                SectionId = SectionId,
+                Page = Page,
+                PageSize = page_size
             };
-            var products = _ProductData.GetProducts(filter);
+            var (products, total_count) = _ProductData.GetProducts(filter);
 
             return View(new CatalogViewModel
             {
                 SectionId = SectionId,
                 BrandId = BrandId,
-                Products = products.Products
+                Products = products
             .OrderBy(p => p.Order).FromDTO()
             //.Select(p => new ProductViewModel
             //{
@@ -48,7 +49,13 @@ namespace WebStore.Controllers
             //    ImageUrl = p.ImageUrl,
             //    Price = p.Price
             //})
-            .ToView()
+            .ToView(),
+                PageViewModel = new PageViewModel
+                {
+                    Page = Page,
+                    PageSize = page_size ?? 0,
+                    TotalItems = total_count
+                }
             });
         }
 
