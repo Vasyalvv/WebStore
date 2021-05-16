@@ -27,7 +27,6 @@
       "destination": "wwwroot/Admin/node_modules/perfect-scrollbar/"
     },
     {
-      //"library": "jquery@1.10.2",
       "library": "jquery@3.2.1",
       "destination": "wwwroot/Admin/node_modules/jquery/"
     },
@@ -42,6 +41,10 @@
     {
       "library": "Chart.js@2.6.0",
       "destination": "wwwroot/Admin/node_modules/chart/"
+    },
+    {
+      "library": "jquery-loading-overlay@2.1.7",
+      "destination": "wwwroot/lib/jquery-loading-overlay/"
     }
   ]
 }
