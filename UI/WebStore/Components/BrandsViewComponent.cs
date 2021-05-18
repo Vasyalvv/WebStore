@@ -17,8 +17,10 @@ namespace WebStore.Components
             _ProductData = ProductData;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string BrandId)
         {
+            ViewBag.BrandId = int.TryParse(BrandId, out int id) ? id : (int?)null;
+
             return View(GetBrands());
         }
 
@@ -28,7 +30,8 @@ namespace WebStore.Components
             .Select(b => new BrandViewModel
             {
                 Id = b.Id,
-                Name = b.Name
+                Name = b.Name,
+                ProductsCount= b.ProductsCount
             });
     }
 }

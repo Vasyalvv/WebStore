@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace WebStore.Domain.ViewModels
     {
         [Required, MaxLength(256)]
         [Display(Name = "Имя пользователя")]
+        [Remote("IsNameFree","Account")]
         public string UserName { get; init; }
 
         [Required]

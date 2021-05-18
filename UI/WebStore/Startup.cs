@@ -18,6 +18,7 @@ using WebStore.Clients.Products;
 using WebStore.Clients.Values;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
+using WebStore.Hubs;
 using WebStore.Infrastructure.Conventions;
 using WebStore.Infrastructure.Middleware;
 using WebStore.Interfaces.Services;
@@ -101,6 +102,8 @@ namespace WebStore
                 //mvc=>mvc.Conventions.Add(new ActionDescriptionAttribute("123"))
                 )
                 .AddRazorRuntimeCompilation();
+
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory Log)
@@ -126,6 +129,7 @@ namespace WebStore
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub>("/chat");
 
                 endpoints.MapGet("/Greetings", async context =>
                 {
