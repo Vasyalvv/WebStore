@@ -16,7 +16,7 @@ namespace WebStore.ConsoleUI
 
             Console.WriteLine("После запуска Hosting приложения нажмите любую клавишу");
             Console.ReadKey();
-            foreach (var product in product_client.GetProducts())
+            foreach (var product in product_client.GetProducts().Products)
             {
                 Console.WriteLine($"{product.Id} - {product.Name} - {product.Price}");
             }
