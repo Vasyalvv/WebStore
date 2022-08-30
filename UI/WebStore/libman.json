@@ -3,18 +3,6 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.2.1",
-      "destination": "wwwroot/lib/jquery/"
-    },
-    {
-      "library": "twitter-bootstrap@3.0.3",
-      "destination": "wwwroot/lib/bootstrap/"
-    },
-    {
-      "library": "font-awesome@4.0.3",
-      "destination": "wwwroot/lib/font-awesome/"
-    },
-    {
       "library": "flag-icon-css@2.8.0",
       "destination": "wwwroot/Admin/node_modules/flag-icon-css/"
     },
@@ -27,7 +15,6 @@
       "destination": "wwwroot/Admin/node_modules/perfect-scrollbar/"
     },
     {
-      //"library": "jquery@1.10.2",
       "library": "jquery@3.2.1",
       "destination": "wwwroot/Admin/node_modules/jquery/"
     },
@@ -42,6 +29,31 @@
     {
       "library": "Chart.js@2.6.0",
       "destination": "wwwroot/Admin/node_modules/chart/"
+    },
+    {
+      "library": "jquery-loading-overlay@2.1.7",
+      "destination": "wwwroot/lib/jquery-loading-overlay/"
+    },
+    {
+      "library": "jquery-validate@1.19.2",
+      "destination": "wwwroot/lib/jquery-validate/",
+      "files": [
+        "jquery.validate.min.js",
+        "localization/messages_ru.js",
+        "localization/messages_ru.min.js"
+      ]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.12",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/lib/jquery-ajax-unobtrusive/"
+    },
+    {
+      "library": "aspnet-signalr@1.1.4",
+      "destination": "wwwroot/lib/aspnet-signalr/"
     }
   ]
 }
